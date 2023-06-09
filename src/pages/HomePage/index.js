@@ -12,8 +12,7 @@ import './index.css';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
-  const news = useSelector((state) => state.news.news);
-  const status = useSelector((state) => state.news.status);
+  const {news, status} = useSelector((state) => state.news);
 
   const updateClick = () => {
     dispatch(fetchNews());
@@ -37,12 +36,10 @@ export const HomePage = () => {
         }
         footer={status === 'loading' && <h2>Loading...</h2>}
         bordered
-        dataSource={news.map((item) => (
-          <NewsItem item={item} />
-        ))}
+        dataSource={news}
         renderItem={(item) => (
           <List.Item key={item.id}>
-            <ul className="home-page__list">{item}</ul>
+            <ul className="home-page__list">{<NewsItem item={item} />}</ul>
           </List.Item>
         )}
       />

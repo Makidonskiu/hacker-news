@@ -15,10 +15,7 @@ import './index.css';
 export const NewsPage = () => {
   const { newsId } = useParams();
   const dispatch = useDispatch();
-  const newsItem = useSelector((state) => state.news.newsItem);
-  const comments = useSelector((state) => state.news.comments);
-  const url = useSelector((state) => state.news.url);
-  const status = useSelector((state) => state.news.status);
+  const {newsItem, comments, url, status} = useSelector((state) => state.news);
 
   React.useEffect(() => {
     dispatch(fetchNewsItem(newsId));
@@ -31,7 +28,7 @@ export const NewsPage = () => {
   }, [dispatch, newsItem]);
 
   const loadNestedComments = (comment) => {
-    if (comment && comment.kids && comment.kids.length > 0) {
+    if (comment?.kids?.length > 0) {
       dispatch(fetchComments(comment.kids || []));
     }
   };
@@ -68,12 +65,10 @@ export const NewsPage = () => {
         }
         footer={status === 'loading' && <h2>Loading...</h2>}
         bordered
-        dataSource={comments.map((comment) => (
-        <Comment key={comment.id} comment={comment} loadNestedComments={loadNestedComments} />
-      ))}
+        dataSource={comments}
         renderItem={(item) => (
           <List.Item key={item.id}>
-            {newsItem?.kids?.length > 0 && <ul>{item}</ul>}
+            {newsItem?.kids?.length > 0 && <ul>{<Comment key={item.id} comment={item} loadNestedComments={loadNestedComments} />}</ul>}
           </List.Item>
         )}
       />
