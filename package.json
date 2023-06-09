@@ -1,5 +1,6 @@
 {
   "name": "hacker-news",
+  "homepage": "https://makidonskiu.github.io/hacker-news/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

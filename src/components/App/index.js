@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="app__container">
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/hacker-news/' element={<HomePage />} />
         <Route path='/news/:newsId' element={<NewsPage />} />
       </Routes>
     </div>
