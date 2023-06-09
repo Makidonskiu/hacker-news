@@ -8,8 +8,6 @@ import { NewsPage } from '../../pages/NewsPage';
 import './index.css';
 
 function App() {
-  const api = process.env.REACT_APP_API_KEY
-  // console.log(api);
   return (
     <div className="app__container">
       <Routes>

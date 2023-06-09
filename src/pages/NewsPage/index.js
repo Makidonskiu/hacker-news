@@ -20,7 +20,6 @@ export const NewsPage = () => {
   const url = useSelector((state) => state.news.url);
 
   React.useEffect(() => {
-    console.log(newsItem);
     dispatch(fetchNewsItem(newsId)); 
   }, [dispatch, newsId]);
 
@@ -42,10 +41,10 @@ export const NewsPage = () => {
 
   return (
     <div>
-      <div className='news-page__button'><Link to="/">
+      <div className='news-page__button'><Link to="/hacker-news/">
         <Button type="primary">Назад к списку новостей</Button>
       </Link></div>
-      <h2 className='news-page__header'><a href={url} target='_blank'>{newsItem.title}</a></h2>
+      <h2 className='news-page__header'><a href={url} target='_blank' rel="noreferrer">{newsItem.title}</a></h2>
       <p className='news-page__text'>Дата: {new Date(newsItem.time * 1000).toLocaleString()}</p>
       <p className='news-page__text'>Автор: {newsItem.by}</p>
       <p className='news-page__text'>Количество комментариев: {newsItem.kids ? newsItem.kids.length : 0}</p>

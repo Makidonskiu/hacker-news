@@ -42,9 +42,9 @@ const hackerNewsSlice = createSlice({
   name: 'news',
   initialState: {
     news: [],
+    comments: [],
     url: '',
     newsItem: null,
-    comments: [],
     status: null,
     error: null,
   },

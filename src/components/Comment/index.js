@@ -10,6 +10,7 @@ export const Comment = ({ comment, loadNestedComments }) => {
   const showComents = () => {
     loadNestedComments(comment)
   }
+
   return (
     <li>
       <p className='comment__text'>{comment.text}</p>
