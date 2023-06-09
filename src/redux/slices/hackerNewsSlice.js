@@ -51,7 +51,7 @@ const hackerNewsSlice = createSlice({
   reducers: {
     saveUrl: (state, { payload }) => {
         state.url = payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
