@@ -48,7 +48,7 @@ export const NewsPage = () => {
       <p className='news-page__text'>Дата: {new Date(newsItem.time * 1000).toLocaleString()}</p>
       <p className='news-page__text'>Автор: {newsItem.by}</p>
       <p className='news-page__text'>Количество комментариев: {newsItem.kids ? newsItem.kids.length : 0}</p>
-      <Button onClick={() => loadNestedComments(newsItem)}>Загрузить вложенные комментарии</Button>
+      <Button onClick={() => loadNestedComments(newsItem)}>Обновить комментарии</Button>
       <CommentsList comments={comments} loadNestedComments={loadNestedComments} />
     </div>
   );
